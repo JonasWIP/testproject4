@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+  app:
+    image: alpine:latest
+    command: ["sleep", "infinity"]
+    ports:
+      - "5124:3000"
+    networks:
+      - default
+    labels:
+      - "nginx.host_port=5124"
+      - "nginx.container_port=3000"
+networks:
+  default:
+    driver: bridge
